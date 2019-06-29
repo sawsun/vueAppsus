@@ -1,0 +1,491 @@
+/*-------Global---------*/
+@import "email-read.css";
+@import "email-main.css";
+* {
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+#app{
+    margin: 0 auto;
+}
+
+html {
+    font-family: 'Gothic';
+    font-size: 16px;
+    text-transform:initial;
+   
+}
+
+header{
+    /* background-color: white; */
+    background: #414f685c;
+    border-bottom: 3px solid rgb(48, 120, 101);
+    padding: 10px;
+    color: green;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.links{
+    margin-right: 10px;
+    font-size: 27px;
+    color: #d8c6c6;
+}
+
+.links>*{
+    font-size: 1.3rem;
+    color: black;
+    padding: 5px;
+    margin: 0 auto;
+}
+
+.user-msg {
+    background-color: azure;
+    color: blueviolet;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 400px;
+}
+.user-msg button {
+    float: right;
+}
+
+.user-msg.success {
+    background-color:lightseagreen;
+    color: white;
+}
+.user-msg.failure {
+    background-color:lightpink;
+    color: red;
+}
+
+
+@media (max-width: 470px) {
+    .links>*{
+        font-size: 1.2rem;
+        font-weight: bolder;
+        
+    }
+    .select-memo{
+        margin-top: 0px;
+    }
+    .user-msg {
+        background-color: azure;
+        color: blueviolet;
+        padding: 20px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        min-width: 400px;
+    }
+    .user-msg button {
+        float: right;
+    }
+    
+    .user-msg.success {
+        background-color:lightseagreen;
+        color: white;
+    }
+    .user-msg.failure {
+        background-color:lightpink;
+        color: red;
+    }
+    
+}
+
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+
+ .router-link-active {
+    color:blue;
+    
+    text-decoration: underline;
+}
+.logo{
+    height: 50px;
+}
+
+a{
+    font-family: 'Cabin Sketch', cursive;
+    color:green;
+    font-size: 25px; 
+    margin: 0 auto;
+    margin-right: 15px;
+    margin-left: 10px;
+    text-decoration: none;
+}
+
+
+.welcome{
+    font-family: 'Cabin Sketch', cursive;
+    color:black;
+    font-size: 50px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+} 
+
+
+.main-title{
+    font-size: 20px;
+    text-decoration: none;
+}
+.home{
+    margin: 0 auto;
+    background-color:#96bba042;
+   text-align: center;
+    color: black;
+    /* overflow: auto; */
+    position: static;
+    height: 100vh;
+    /* width: 100%; */
+}
+
+.memo{
+    padding:10px;
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    margin: 5%;
+}
+
+.memo-image{
+    width:100%;
+}
+.memo-container,.edit-form{
+    margin:0 auto;
+    background: url(../img/memoBg.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    overflow: auto;
+    position: static;
+    height: 100vh;
+    width: 100%;
+    
+}
+.memos-list{
+    padding: 10px;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-gap: 50px;
+    
+}
+.memo-preview{
+    object-fit: cover;
+    transition: .4s;
+}
+.input-edit,.input-title{
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+    height: 200px;
+    padding: 10px;
+}
+.memo-add{
+    float: right;
+}
+
+.input-edit{
+    box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+    margin: 0 auto;
+    width: 90%;
+    height: 80vh;
+    text-align: center;
+
+}
+.input-title{
+    height: 30px;
+    width: 100%;
+    
+    border: none;
+}
+.input-content{
+    padding: 10px;
+    border: none;
+    font-size: 20px;
+
+}
+.memo-preview:hover{
+    opacity: .7;
+    cursor: pointer;
+    -webkit-transform: rotate(360deg);
+          transform: rotate(360deg);
+}
+
+.content-memo, .input-content{
+    padding: 10px;
+    font-family: 'Itim', cursive;
+    font-size: 20px;
+
+}
+
+.title, .input-title{
+    font-family: 'Gochi Hand', cursive;
+    font-size: 25px;
+    font-weight: bolder;
+    padding: 5px;
+    border-bottom: 1px brown solid;
+}
+.input-title{
+    margin-top: 3px;
+   
+}
+input:focus {outline:0;}
+
+.delete{
+    font-size: 20px;
+
+}
+.pincel{
+    font-size: 25px;
+}
+.editors{
+    float: right;
+    font-size: 12px;
+
+}
+
+
+
+.btn-todo-container{
+    display: flex;
+    flex-direction: row;
+    padding: 5px;
+}
+
+.todo-delete{
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.search{
+    padding: 7px;
+    width: 200px;
+    height: 40px;
+    font-size: 1.1em;
+    margin-right: 5px;
+    background: #d6e6d640;
+}
+.search-select{
+    width: 100px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 7px;
+    /* border: none; */
+    background: transparent url("http://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/br_down.png") no-repeat 60px center;
+}
+.edit-form{
+    padding: 20px;
+    /* background: #ffe4c47d; */
+}
+
+.memo-add,.filter{
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+}
+.new-img-input{
+    width: 70%;
+    padding: 5px;
+    background: #8080803b;
+    border: 1px solid #80808080;
+    font-size: .8em;
+    margin: 0 auto;
+}
+
+.fa-pencil-alt{
+    font-size: 20px;
+}
+
+.color-picker{
+    -webkit-appearance: none; 
+    background: none;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer; 
+    /* visibility: hidden; */
+}
+
+.color-picker::-webkit-color-swatch {
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.color-picker::-webkit-color-swatch-wrapper {
+    border: none;
+    border-radius: 10px;
+    padding: 0;
+}
+
+.memo-details{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 85%;
+    min-height: 200px;
+    max-height: 700px;
+}
+
+.date{
+    color: gray;
+    padding: 5px;
+}
+
+.pin{
+    float: right;
+    font-size: 20px;
+}
+
+.edit-btns{
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    padding: 20px;
+    margin-left: 40px;
+}
+
+.cancel-rl{
+    font-family: 'Gochi Hand', cursive;
+    padding: 5px;
+    font-size: 2em;
+    margin-top: 4px;
+
+
+}
+
+.add-btn{
+    padding: 5px;
+    border: none;
+    background: none;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.add-todo{
+    font-size: 16px;
+    color: #8080804d;
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+}
+.add-todo:hover{
+    color: green;
+
+}
+
+.add-input{
+    border: 2px solid #8080804d;
+    width: 60%;
+    padding: 7px;
+    margin: 15px;
+    background: none;
+}
+
+.content-img{
+    width: 100%;
+    border-radius: 10%;
+}
+
+.person{
+    border: 5px solid black;
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 40%;
+    height: 50vh;
+    /* height: 50%; */
+    -webkit-clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+}
+
+.person:hover{
+    opacity: 0.7;
+}
+
+.person1{
+    /* height: 50vh; */
+}
+
+.home-title{
+    font-family: 'Itim', cursive;
+    font-size: 3em;
+    padding: 10px;
+    color: darkgreen;
+}
+.person-container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    /* position: static; */
+    /* height: 100vh; */
+}
+
+@media (max-width: 470px) {
+    .person{
+        width: 45%;
+        height: 30vh;
+    }
+    
+}
+/* 
+@media (max-width: 750px) {
+    .person{
+        width: 45%;
+        height: 50vh;
+    }
+    
+} */
+.flash {
+    animation-name: flash;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+ }
+  
+ @keyframes flash {
+    from {color: rgb(23, 161, 97);}
+    /* to {color: blue;} */
+    to {color: rgb(70, 75, 219);}
+ }
+
+ .user-msg {
+    background-color: azure;
+    color: blueviolet;
+    padding: 20px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 400px;
+}
+.user-msg button {
+    float: right;
+}
+
+.user-msg.success {
+    background-color:lightseagreen;
+    color: white;
+}
+.user-msg.failure {
+    background-color:lightpink;
+    color: red;
+}
