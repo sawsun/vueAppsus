@@ -7,7 +7,7 @@ export default{
                 <user-msg></user-msg>
                 <router-link exact to="/">
                     <h1 class="welcome"> 
-                        <img class="logo" src="img/logo1.png">
+                        <img class="logo" src="./img/logo1.png">
                         <span class="main-title">Appsus</span>
                     </h1>
                 </router-link>
